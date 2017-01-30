@@ -9,12 +9,9 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Vinkla\Hashids;
 
 use GrahamCampbell\Manager\AbstractManager;
-use Hashids\Hashids;
 use Illuminate\Contracts\Config\Repository;
 
 /**
@@ -51,9 +48,9 @@ class HashidsManager extends AbstractManager
      *
      * @param array $config
      *
-     * @return \Hashids\Hashids
+     * @return mixed
      */
-    protected function createConnection(array $config): Hashids
+    protected function createConnection(array $config)
     {
         return $this->factory->make($config);
     }
@@ -63,7 +60,7 @@ class HashidsManager extends AbstractManager
      *
      * @return string
      */
-    protected function getConfigName(): string
+    protected function getConfigName()
     {
         return 'hashids';
     }
@@ -73,7 +70,7 @@ class HashidsManager extends AbstractManager
      *
      * @return \Vinkla\Hashids\HashidsFactory
      */
-    public function getFactory(): HashidsFactory
+    public function getFactory()
     {
         return $this->factory;
     }
